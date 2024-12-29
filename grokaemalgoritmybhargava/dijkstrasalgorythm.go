@@ -1,34 +1,35 @@
-package main
+package edu
 
 import (
 	"fmt"
 	"math"
 )
 
-var graph = map[string]map[string]int{
-	"start": {"a": 6, "b": 2},   // веса ребер
-	"a":     {"fin": 1},         // остальные узлы и их соседи
-	"b":     {"a": 3, "fin": 5}, // остальные узлы и их соседи
-	"fin":   {},                 // у конечного узла нет соседей
-}
-
-// стоимость узла определяет, сколько времени потребуется для перехода к этому узлу
-// от начального узла
-var costs = map[string]int{
-	"a":   6,
-	"b":   2,
-	"fin": int(math.Inf(1)),
-}
-
-// для вычисления итогового пути
-var parents = map[string]string{
-	"a":   "start",
-	"b":   "start",
-	"fin": "",
-}
 var processed = map[string]bool{} // для отслеживания уже обработанных узлов
-
+// алгоритм Дейкстры
 func Dijkstras() {
+	var graph = map[string]map[string]int{
+		"start": {"a": 6, "b": 2},   // веса ребер
+		"a":     {"fin": 1},         // остальные узлы и их соседи
+		"b":     {"a": 3, "fin": 5}, // остальные узлы и их соседи
+		"fin":   {},                 // у конечного узла нет соседей
+	}
+
+	// стоимость узла определяет, сколько времени потребуется для перехода к этому узлу
+	// от начального узла
+	var costs = map[string]int{
+		"a":   6,
+		"b":   2,
+		"fin": int(math.Inf(1)),
+	}
+
+	// для вычисления итогового пути
+	var parents = map[string]string{
+		"a":   "start",
+		"b":   "start",
+		"fin": "",
+	}
+
 	node := findLowestCostNode(costs)
 	for node != "" {
 		cost := costs[node]
