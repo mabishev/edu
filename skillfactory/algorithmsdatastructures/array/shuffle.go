@@ -5,7 +5,7 @@ import (
 	"math/rand"
 )
 
-func main() {
+func Shuffle() {
 	ar := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	rand.Shuffle(len(ar), func(i, j int) { ar[i], ar[j] = ar[j], ar[i] })
 	fmt.Println(ar)

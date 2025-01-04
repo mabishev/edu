@@ -30,7 +30,7 @@ func Remove(list []int, index int) []int {
 	return list[:Size(list)-1]
 }
 
-func main() {
+func List() {
 	list := []int{1, 2, 3}
 
 	list = Add(list, 4)
