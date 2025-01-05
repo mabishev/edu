@@ -8,17 +8,32 @@ import (
 )
 
 func TaskB() {
-	//var t int   // медленнее чем bufio.NewScanner()  5 баллов
-	//fmt.Scan(&t)
-	//for i := 0; i < t; i++ {
-	//	var n int
-	//	fmt.Scan(&n)
-	//	myMap := make(map[int]int)
-	//	for j := 0; j < n; j++ {
-	//		var p int
-	//		fmt.Scan(&p)
-	//		myMap[p]++
-	//	}
+	/*
+		var t int   // медленнее чем bufio.NewScanner()  5 баллов
+		fmt.Scan(&t)
+		for i := 0; i < t; i++ {
+			var n int
+			fmt.Scan(&n)
+			myMap := make(map[int]int)
+			for j := 0; j < n; j++ {
+				var p int
+				fmt.Scan(&p)
+				myMap[p]++
+			}
+	*/
+
+	/*
+	   scanner := bufio.NewScanner(os.Stdin)
+	   	//scanner.Split(bufio.ScanWords) // без Split программа завершается с помощью enter
+	   	for scanner.Scan() {
+	   		number, err := strconv.ParseFloat(scanner.Text(), 64)
+	   		if err != nil {
+	   			fmt.Println(err)
+	   			return
+	   		}
+	   		fmt.Println(number)
+	   	}
+	*/
 
 	scanner := bufio.NewScanner(os.Stdin) // этот код работает быстрее чем fmt.Scan() 10 баллов
 	scanner.Split(bufio.ScanWords)        // одной строкой через пробел ввести цифры (напр. 2 4 6)
