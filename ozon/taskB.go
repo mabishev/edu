@@ -21,7 +21,7 @@ func TaskB() {
 	//	}
 
 	scanner := bufio.NewScanner(os.Stdin) // этот код работает быстрее чем fmt.Scan() 10 баллов
-	scanner.Split(bufio.ScanWords)
+	scanner.Split(bufio.ScanWords)        // одной строкой через пробел ввести цифры (напр. 2 4 6)
 
 	scanner.Scan()
 	t, _ := strconv.Atoi(scanner.Text())
